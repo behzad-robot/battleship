@@ -8,7 +8,7 @@
     "api" :"nodemon src/master-api.js --exec babel-node --presets es2015,stage-2",
     "build": "babel src -d dist --presets es2015,stage-2",
     "serve": "node dist/master-api.js",
-    "deploy":"npm run build && pm2 start dist/master-api.js --name \"battleship=api\""
+    "deploy":"npm run build && pm2 start dist/master-api.js --name \"battleship-api\""
   },
   "author": "behzad-robot",
   "license": "ISC",

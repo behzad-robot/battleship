@@ -8,7 +8,7 @@
     "admin" :"nodemon src/http-admin.js --exec babel-node --presets es2015,stage-2",
     "build": "babel src -d dist --presets es2015,stage-2",
     "serve": "node dist/http-admin.js",
-    "deploy":"npm run build && pm2 start dist/http-admin.js --name \"battleship=api\""
+    "deploy":"npm run build && pm2 start dist/http-admin.js --name \"battleship-admin\""
   },
   "author": "behzad-robot",
   "license": "ISC",

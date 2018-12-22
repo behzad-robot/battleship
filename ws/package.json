@@ -8,7 +8,7 @@
     "ws" :"nodemon src/ws-game.js --exec babel-node --presets es2015,stage-2",
     "build": "babel src -d dist --presets es2015,stage-2",
     "serve": "node dist/ws-game.js",
-    "deploy":"npm run build && pm2 start dist/ws-game.js --name \"battleship=api\""
+    "deploy":"npm run build && pm2 start dist/ws-game.js --name \"battleship-ws\""
   },
   "author": "behzad-robot",
   "license": "ISC",
