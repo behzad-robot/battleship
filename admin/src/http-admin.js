@@ -3,9 +3,10 @@ import { log } from "./libs/log";
 import AdminSocketRouter from './routers/admin_socket';
 import { APICollection } from "./utils/api-helper";
 import AdminAnalyticsRouter from "./routers/admin_analytics";
+import { API_TOKEN, ADMIN_TOKEN } from "../../api/src/constants";
 //db:
-const User = new APICollection('users');
-const Game = new APICollection('games');
+const User = new APICollection('users',{apiToken : API_TOKEN , adminToken : ADMIN_TOKEN});
+const Game = new APICollection('games',{apiToken : API_TOKEN , adminToken : ADMIN_TOKEN});
 const AnalyticsEvent = new APICollection('analytics');
 //express:
 const express = new MyExpressApp();
