@@ -7,3 +7,5 @@ admin/log.html
 ws/dist
 api/dist
 admin/dist
+api/src/.localhost
+
