@@ -36,9 +36,9 @@ const appendToFile = (str, color = 'black') =>
         return;
     if (typeof str == 'object' || typeof str == 'array')
         str = JSON.stringify(str);
-    const FILE = path.resolve('log.html');
-    const data = `<div><span style="color:${color};">${str}</span><br><small>createdAt : ${new Date(Date.now()).toLocaleString()}</small><hr/></div>\n`;
-    fs.appendFile(FILE,data,(err)=>{
+    // const FILE = path.resolve('log.html');
+    // const data = `<div><span style="color:${color};">${str}</span><br><small>createdAt : ${new Date(Date.now()).toLocaleString()}</small><hr/></div>\n`;
+    // fs.appendFile(FILE,data,(err)=>{
 
-    });
+    // });
 }

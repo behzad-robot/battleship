@@ -1,14 +1,17 @@
-import { API_URL, API_TOKEN, ADMIN_TOKEN } from "../constants";
+/*
+    Version : 0.0.3b
+*/
 import fetch from 'node-fetch';
+import { API_URL } from '../constants';
 export class APICollection 
 {
-    constructor(slug, settings = {})
+    constructor(slug, settings = { apiToken: "", adminToken: undefined })
     {
         //data:
         this.slug = slug;
         this.headers = {
-            'api-token': API_TOKEN,
-            'admin-token': ADMIN_TOKEN,
+            'api-token': settings.apiToken,
+            'admin-token': settings.adminToken,
             'localhost-caller': settings.caller ? settings.caller : 'api-helper',
         }
         //bind functions:
@@ -35,7 +38,16 @@ export class APICollection
     {
         return fetch(API_URL + this.slug + '/' + _id + '/', {
             headers: this.headers,
-        }).then(res => res.json());
+        }).then(res => res.json()).then((obj) =>
+        {
+            return new Promise((resolve, reject) =>
+            {
+                if (obj.error != undefined && obj.code != undefined)
+                    reject(obj.error);
+                else
+                    resolve(obj);
+            });
+        });
     }
     find(query = undefined, limit = 50, offset = 0)//can be anything that api supports!
     {
@@ -71,7 +83,7 @@ export class APICollection
             method: "POST",
             headers: postHeaders,
             body: JSON.stringify(doc),
-        }).then(res => res.text());
+        }).then(res => res.json());
     }
     delete(_id)
     {

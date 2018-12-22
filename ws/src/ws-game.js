@@ -6,7 +6,7 @@ import { SocketQueue } from './sockets/socket_queue';
 import { SocketGame } from './sockets/socket_game';
 //run http server:
 const http = require('http');
-const PORT = 4545;
+const PORT = 4040;
 const httpServer = http.createServer(function (request, response)
 {
     console.log((new Date()) + ' Received request for ' + request.url);

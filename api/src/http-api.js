@@ -73,7 +73,7 @@ express.expressApp.use('/api/users/', new PublicMongooseAPIRouter(User, { apiTok
 express.expressApp.use('/api/games/', new PublicMongooseAPIRouter(Game, { apiTokenRequired: true }).router)
 express.expressApp.use('/api/analytics/', new PublicMongooseAPIRouter(AnalyticsEvent, { apiTokenRequired: true }).router)
 //listen:
-const PORT = 3000;
+const PORT = 4545;
 express.http.listen(PORT, function ()
 {
     log.success('http server listening on port ' + PORT);
