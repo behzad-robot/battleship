@@ -280,7 +280,7 @@
             }
             function setupSocket()
             {
-                ws = new WebSocket('ws://localhost:4545');
+                ws = new WebSocket('{{{ws_url}}}');
                 ws.onopen = () =>
                 {
                     log('socket connected!');

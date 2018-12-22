@@ -1,5 +1,6 @@
 
 import { AdminRouter } from "./admin_router";
+import { IS_LOCALHOST } from "../constants";
 
 export default class AdminSocketRouter extends AdminRouter
 {
@@ -8,7 +9,7 @@ export default class AdminSocketRouter extends AdminRouter
         super();
         this.router.get('/game/:_id', (req, res) =>
         {
-            res.status(200).send(this.renderTemplate('socket.html', { _id: req.params._id }));
+            res.status(200).send(this.renderTemplate('socket.html', { _id: req.params._id , ws_url : IS_LOCALHOST() ? 'ws://localhost:4040': 'ws://determination.ir:4040'}));
         });
         this.router.all('/api/game/', (req, res) =>
         {
