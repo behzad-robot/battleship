@@ -11,16 +11,13 @@ import MongooseDB from './libs/mongoose-db';
 import UsersAuthRouter from './routers/users_auth_router';
 import { PublicMongooseAPIRouter } from './routers/public-api-mongoose';
 import { AppInfoRouter } from './routers/app_info_router';
+import { IS_LOCALHOST } from './constants';
 
-var fs = require('fs');
-var path = require('path');
-function IsLocalHost(){
-    return fs.existsSync(path.resolve('.localhost'));
-}
+
 
 const express = new MyExpressApp();
-console.log('running localhost?=>'+IsLocalHost());
-const db = new MongooseDB(IsLocalHost() ? 'mongodb://localhost:27017/battleship' : 'mongodb://admin:polo1374@localhost:27017/corridor');
+console.log('running localhost?=>'+IS_LOCALHOST());
+const db = new MongooseDB(IS_LOCALHOST() ? 'mongodb://localhost:27017/battleship' : 'mongodb://admin:polo1374@localhost:27017/corridor');
 db.schemas.User = User;
 db.schemas.Game = Game;
 //log middleware:
