@@ -1,4 +1,3 @@
-
 export const API_TOKEN ="forthehorde";
 export const API_ENCODE_KEY = "animal";
 export const API_URL = "http://localhost:4545/api/";
