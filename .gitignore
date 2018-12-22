@@ -4,3 +4,6 @@ admin/node_modules
 ws/log.html
 api/log.html
 admin/log.html
+ws/dist
+api/dist
+admin/dist
