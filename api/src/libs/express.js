@@ -1,4 +1,4 @@
-import { IS_LOCALHOST } from '../constants';
+import { IS_LOCALHOST, GetMongoDBURL } from '../constants';
 
 const express = require('express');
 const session = require('express-session');
@@ -6,7 +6,7 @@ export default class MyExpressApp
 {
     constructor(settings = {
         hasSessionEngine: true,
-        mongoUrl: IS_LOCALHOST()? 'mongodb://localhost:27017/battleship' : 'mongodb://admin:polo1374@localhost:27017/corridor',
+        mongoUrl: GetMongoDBURL(),
         serveFiles: 'public',
     })
     {
