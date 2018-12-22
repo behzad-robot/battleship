@@ -1,0 +1,57 @@
+User
+{
+    _id 
+    username : string,
+    password : string,
+    email : string,
+    
+    gameId : string,
+    profileImage : string,
+    score : int 
+    createdAt  , updatedAt , lastLogin
+}
+Game
+{
+    _id 
+    turn
+    winner
+    users : [],
+    players : Player[]{
+        userId : string,
+        socketId : string/int,
+        isConnected : boolean,
+    }
+    boards : Board[]{
+        owner : string
+        ships : [
+            {
+                size : int,
+               location : {x,y}
+               direction : {x,y} 
+            }
+        ],
+        shotBlocks : [
+            { x , y  }
+        ],
+    },
+    createdAt , updatedAt
+}
+APIResponse
+{
+    code : int
+    error : string
+    _data : string / object (based on encode!)
+}
+SocketData
+{
+    //shared :
+    eventName : string ,
+    _data : string / object ( based on encode!)
+    //output only:
+    code : int 
+    error : string
+    //input only:
+    userToken
+    apiToken
+    adminToken?
+}
