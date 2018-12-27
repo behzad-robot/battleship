@@ -40,7 +40,8 @@ export class AppInfo
             }
 
             this.data = d;
-            callBack(err, JSON.parse(d.toString()));
+            var appInfo = JSON.parse(d.toString());
+            callBack(err,appInfo);
         });
     }
 }

@@ -1,0 +1,1 @@
+docker run -i -t -d -p 4545:4545 -p 4444:4444 -p 4040:4040 -p 27017:27017 behzadrobot/battleship

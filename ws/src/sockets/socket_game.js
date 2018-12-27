@@ -136,6 +136,40 @@ export class SocketGame extends SocketBase
                 }
             });
         }
+        else if (eventName == 'surrender')
+        {
+            if (data.gameId == undefined || data.gameId == "")
+            {
+                socket.respond(eventName, null, 500, 'Missing gameId');
+                return;
+            }
+            this.getGame(data.gameId, (err, game) =>
+            {
+                if (err || game == null)
+                {
+                    socket.respond(eventName, null, 500, err ? err : "Game not found!");
+                    return;
+                }
+                //step 0: check winner , turn:
+                if (game.winner != null && game.winner != "")
+                {
+                    socket.respondError(eventName, "This Game has a winner!");
+                    return;
+                }
+                if (data.userId != headers.user._id.toString())
+                {
+                    socket.respondError(eventName, "You cant surrender for opponent!");
+                    return;
+                }
+                game.winner = game.users[0] == data.userId ? game.users[1] : game.users[0];
+                game.turn = "winner";
+                this.setGame(game);
+                socket.respondToRoom('game-' + game._id, eventName, {
+                    userId : data.userId,
+                    game : game,
+                });
+            });
+        }
     }
     //game functions:
     getGame(_id, callBack)

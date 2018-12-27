@@ -31,6 +31,7 @@ export class SocketQueue extends SocketBase
         //console.log(`SocketQueue.onMessage=>${eventName} => ${JSON.stringify(data)}`);
         if (eventName == 'join-queue')
         {
+            console.log('join-queue=>'+headers.user._id.toString());
             var queueMember = {
                 userId: headers.user._id.toString(),
                 username: headers.user.username,
@@ -121,7 +122,7 @@ export class SocketQueue extends SocketBase
         {
             var qm = this.queue[i];
             boards.push({
-                owner: qm.userId,
+                owner: users[i],
                 ships: qm.board.ships ? qm.board.ships : [],
                 shotBlocks: [],
             });

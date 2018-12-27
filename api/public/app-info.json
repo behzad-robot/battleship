@@ -1,5 +1,19 @@
 {
     "latest_version": 1,
     "last_supported_version": 1,
-    "splashImage": "http://localhost:3000/akali.jpg"
+    "splashImage": "http://localhost:3000/akali.jpg",
+    "emotes": [
+        {
+            "token": "laugh",
+            "url": "http://localhost:3000/laugh.png",
+            "hidden": false
+        }
+    ],
+    "profileImages":[
+        {
+            "token": "default",
+            "url": "http://localhost:3000/sunglasses.png",
+            "hidden": false
+        }
+    ]
 }
